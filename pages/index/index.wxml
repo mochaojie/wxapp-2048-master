@@ -1,0 +1,9 @@
+<!--index.wxml-->
+<view class="container">
+  	
+	<view wx:for-items="{{gameList}}" class="usermotto">
+	    <button type="primary" disabled="{{disabled}}" bindtap="start{{item}}"> 续命游戏</button>
+	</view>
+
+	<text class="more">穿上红衣，来为长者续上一秒吧</text>
+</view>

@@ -1,0 +1,48 @@
+<view class="container">
+
+  <view class="game-body">
+    <loading hidden="{{hidden}}">
+        续命中...
+    </loading>
+    <view class="heading">
+      	<text class="title">苟利国家生死以</text>
+      	<view class="scores-container">
+        	<view class="score-container">{{score}}s</view>
+      		<view class="best-container">{{highscore}}s</view>
+      	</view>
+    </view>
+
+    <view class="above-game">
+      	<text class="title">岂因祸福避趋之</text>
+      	<text class="restart-button" bindtap="restart">重新续命</text>
+    </view>
+
+    <view class="game-container">
+        <view class="game-message game-{{over ? (win ? 'won' : 'over') : ''}}">
+          	<text class="over-msg">{{overMsg}}</text>
+          	<view class="lower">
+	        	<!-- <text class="keep-playing-button">继续</text> -->
+          		<text class="retry-button" bindtap="restart">再续一秒</text>
+        	</view>
+        </view>
+
+	    <view class="grid-container" bindtouchstart="touchStart" bindtouchmove="touchMove" bindtouchend="touchEnd">
+			<view wx:for="{{grids}}" wx:for-index="rowIdx" wx:for-item="row" class="grid-row">
+			  	<view wx:for="{{row}}" wx:for-index="colIdx" wx:for-item="cell" class="grid-cell">
+			  		<view class="tile tile-64">
+									  		
+
+			  			<view wx:if="{{cell}}" class="tile-inner">
+			      			 {{cell.content}} 
+			      		</view>
+			  		</view>
+			  	</view>
+			</view>
+	    </view>
+
+  	</view>
+  	<!-- <view class="game-explanation">
+      <view class="important">如何开始：</view> 手指上下左右滑动
+    </view> -->
+
+</view>
